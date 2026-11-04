@@ -38,8 +38,6 @@ _Disusun dari inspeksi langsung ke `/usr/local/app/iqra` di server stbjkt (15 Ok
     ├── payment/            # payment_request.php, callback Midtrans & Tripay
     ├── asset/              # CSS/JS/gambar statis
     ├── uploads/            # Upload user: avatars/, buku/, kegiatan/
-    ├── file/               # ⚠️ TinyFileManager 2.5.3 (lihat temuan keamanan)
-    ├── v1/ v2/ v3/         # ⚠️ Salinan versi lama di web root (lihat temuan)
     ├── legaly/             # Salinan statis homepage legaly.id (tidak terpakai)
     └── PHPMailer/          # Library email
 
