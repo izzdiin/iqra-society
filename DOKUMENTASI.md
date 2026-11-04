@@ -38,7 +38,6 @@ _Disusun dari inspeksi langsung ke `/usr/local/app/iqra` di server stbjkt (15 Ok
     ├── payment/            # payment_request.php, callback Midtrans & Tripay
     ├── asset/              # CSS/JS/gambar statis
     ├── uploads/            # Upload user: avatars/, buku/, kegiatan/
-    ├── legaly/             # Salinan statis homepage legaly.id (tidak terpakai)
     └── PHPMailer/          # Library email
 
 /usr/local/app/iqra/v2_old/   # Arsip versi lama (7,7 MB, di luar docroot)
