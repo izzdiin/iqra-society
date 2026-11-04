@@ -87,18 +87,7 @@ Fitur utama:
 - Fungsi `getWaHeaders()` didefinisikan di `config.php`; pernah terjadi konflik redeclare dengan `admin/wa_gateway.php` (lihat error_log lama, sudah tidak relevan dengan kode kini).
 - Kredensial **tidak dicantumkan** di dokumen ini; kelola via `config.php` di server.
 
-## 7. Temuan Perlu Perbaikan (ringkas)
-
-1. **KRITIS — File manager publik**: `/file/index.php` (TinyFileManager 2.5.3) dapat diakses publik dengan kredensial default bawaan → siapa pun bisa login dan mengubah file server. Segera hapus direktori `/file/` atau batasi aksesnya.
-2. **Tinggi — error_log terekspos**: `/admin/error_log` dan `/pengajar/error_log` mengembalikan HTTP 200 → membocorkan path server & detail error PHP. Hapus file atau blokir via `.htaccess`.
-3. **Sedang — versi lama di web root**: direktori `v1/`, `v2/`, `v3/` dapat diakses publik (200); `legaly/index.html` salinan situs lain. Hapus yang tidak dipakai.
-4. ~~Rute `/donatur` mati~~ — **SELESAI 2026-10-15**: direktori + dashboard donatur dibuat.
-5. **SEO**: meta description homepage kosong; title memakai entitas `&#039;`.
-6. **Kerapian**: `v2_old/` (7,7 MB) dan `struktur.md` usang; satu gambar tanpa atribut `alt`.
-
-_Detail temuan review web menyusul di laporan chat._
-
-## 8. Riwayat Perubahan
+## 7. Riwayat Perubahan
 - 2026-10-17: **Sistem log aktivitas** — tabel `activity_logs` + helper `log_activity($action, $module, $desc, $target_id)` di `config.php`; pencatatan ditambahkan ke: approve/reject kelas (`admin/approve_class.php`), ubah role user (`admin/users.php`), CRUD artikel (`admin/post.php`), CRUD quotes (`admin/process_quotes.php`), update profil (`admin/profile.php`, `pengajar/profile.php`). Halaman `admin/log.php` (khusus super admin) menampilkan log dengan filter modul/aksi/pencarian + pagination; link menu "Log Aktivitas" ditambahkan di `admin/menu.php`.
 - 2026-10-17: **Fix double-escape judul kelas** di `admin/manage_class.php` — `htmlspecialchars` dipanggil 2x (saat bangun array + saat `json_encode` ke Alpine.js) sehingga "Qur'an" tampil "Qur&#039;an". Escape di level array dihapus; tampilan via `x-text` tetap aman dari XSS.
 - 2026-10-17: **Fix upload foto profil** — bug silent: gagal upload di level PHP tidak menampilkan pesan error ke pengguna. Ditambahkan pesan error jelas per kode `UPLOAD_ERR_*` di `admin/profile.php` dan `pengajar/profile.php`. Limit dinaikkan 2MB → 5MB (validasi kode + `php_value upload_max_filesize 5M` & `post_max_size 8M` di `.htaccess`; container memakai mod_php).
