@@ -1,0 +1,57 @@
+RewriteEngine On
+
+# ==========================================
+# POST
+# ==========================================
+RewriteRule ^post/([a-zA-Z0-9-]+)/?$ pages/view_post.php?slug=$1 [L,QSA]
+
+# ==========================================
+# PENDAFTARAN KELAS (form di halaman detail)
+# ==========================================
+RewriteRule ^kelas/daftar_kelas\.php$ daftar_kelas.php [L,QSA]
+
+# ==========================================
+# KELAS DETAIL
+# ==========================================
+RewriteRule ^kelas/([0-9]+)/?$ pages/detail_kelas.php?id=$1 [L,QSA]
+RewriteRule ^kelas/([a-zA-Z0-9-]+)/?$ pages/detail_kelas.php?slug=$1 [L,QSA]
+
+# ==========================================
+# STATIC PAGES
+# ==========================================
+RewriteRule ^kegiatan/([a-zA-Z0-9-]+)/?$ pages/detail_kegiatan.php?slug=$1 [L,QSA]
+RewriteRule ^kegiatan/?$ pages/kegiatan.php [L]
+RewriteRule ^buku/([a-zA-Z0-9-]+)/?$ pages/detail_buku.php?slug=$1 [L,QSA]
+RewriteRule ^buku/?$ pages/buku.php [L]
+RewriteRule ^payment/bayar/([A-Z0-9-]+)/?$ payment/bayar.php?ref=$1 [L,QSA]
+RewriteRule ^payment/bayar-donasi/([A-Z0-9-]+)/?$ payment/bayar_donasi.php?ref=$1 [L,QSA]
+RewriteRule ^kelas/?$ pages/kelas.php [L]
+RewriteRule ^tentang-kami/?$ pages/tentang-kami.php [L]
+RewriteRule ^kebijakan-privasi/?$ pages/kebijakan-privasi.php [L]
+RewriteRule ^syarat-ketentuan/?$ pages/syarat-ketentuan.php [L]
+
+# ==========================================
+# AUTH
+# ==========================================
+RewriteRule ^login/?$ login.php [L]
+RewriteRule ^logout/?$ logout.php [L]
+RewriteRule ^register/?$ register.php [L]
+RewriteRule ^forgot-password/?$ forgot-password.php [L]
+
+# ==========================================
+# DASHBOARD / ROLE ROUTES
+# ==========================================
+RewriteRule ^admin/?$ admin/index.php [L,QSA]
+RewriteRule ^pengajar/?$ pengajar/index.php [L,QSA]
+RewriteRule ^donatur/?$ donatur/index.php [L,QSA]
+RewriteRule ^pembelajar/?$ pembelajar/index.php [L,QSA]
+
+# ==========================================
+# PUBLIC PROFILE
+# /username
+# ==========================================
+RewriteRule ^profile/links/?$ profile/manage_profile_links.php [L,QSA]
+RewriteRule ^([a-z0-9](?:[a-z0-9-]{1,48}[a-z0-9])?)/?$ profile/profile.php?username=$1 [L,QSA]
+# Limit upload avatar 5MB (2026-10-17)
+php_value upload_max_filesize 5M
+php_value post_max_size 8M

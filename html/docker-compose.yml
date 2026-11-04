@@ -1,0 +1,13 @@
+
+services:
+  iqra:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: iqra
+    restart: always
+    ports:
+      - "4700:80"
+    volumes:
+      - /usr/local/app/iqra/html:/var/www/html
+      - /usr/local/app/iqra/config.php:/var/www/config.php
