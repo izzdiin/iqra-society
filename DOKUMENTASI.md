@@ -40,7 +40,6 @@ _Disusun dari inspeksi langsung ke `/usr/local/app/iqra` di server stbjkt (15 Ok
     ├── uploads/            # Upload user: avatars/, buku/, kegiatan/
     └── PHPMailer/          # Library email
 
-/usr/local/app/iqra/v2_old/   # Arsip versi lama (7,7 MB, di luar docroot)
 ```
 
 ## 3. Routing (`.htaccess`)
