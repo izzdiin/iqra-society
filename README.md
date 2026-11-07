@@ -14,8 +14,8 @@ pembayaran (Midtrans + Tripay). Dokumentasi lengkap proyek ada di
   (PHP 8.3 + Apache).
 - `config.php` — konfigurasi utama (di luar docroot saat produksi).
 
-## Menjalankan
+## Install
 
-Salin pohon ini ke server, isi kembali berkas konfigurasi, lalu
-bangun container dari `html/docker-compose.yml`. Skema database berada di
-server MySQL terpisah dan tidak termasuk dalam repo ini.
+Salin ke server, isi konfigurasi, lalu deploy container dari
+`html/docker-compose.yml`. Skema database berada di server MySQL
+terpisah dan tidak termasuk dalam repo ini.
