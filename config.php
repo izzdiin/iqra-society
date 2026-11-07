@@ -13,9 +13,8 @@ define('WA_DEVICE_ID', '');
 
 function getWaHeaders()
 {
-    // Basic auth gateway wa-netter (2026-10-18)
     return [
-        'Authorization: Basic ' . base64_encode('wa:wa-netter'),
+        'Authorization: Basic ' . base64_encode('admin:password'),
         'X-Device-Id: ' . WA_DEVICE_ID
     ];
 }
